@@ -1,4 +1,3 @@
-# car.py
 from constants import DIRECTIONS
 
 class Car:
