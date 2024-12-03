@@ -1,7 +1,10 @@
-from constants import DIRECTIONS
+from simulation.constants import DIRECTIONS
+
+from exceptions.car_exceptions import InvalidCarCommandError
 
 class Car:
     def __init__(self, name: str, x: int, y: int, direction: str):
+        self.VALID_COMMANDS = {'L', 'R', 'F'}
         self.name = name
         self.x = x
         self.y = y
@@ -34,12 +37,16 @@ class Car:
 
     def execute_command(self, command: str, field_width: int, field_height: int):
         """Execute a single command."""
+
         if command == 'L':
             self.turn_left()
         elif command == 'R':
             self.turn_right()
         elif command == 'F':
             self.move_forward(field_width, field_height)
+        else:
+            if command not in self.VALID_COMMANDS:
+                raise InvalidCarCommandError(command)
 
     def __str__(self):
         return f"{self.name}, ({self.x},{self.y}) {self.direction}"
