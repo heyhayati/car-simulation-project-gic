@@ -1,4 +1,5 @@
 from simulation.simulation import Simulation
+
 from exceptions.field_exceptions import InvalidFieldDimensionsError
 from exceptions.car_exceptions import InvalidCarCommandError, CarCollisionError
 

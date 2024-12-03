@@ -8,8 +8,8 @@ class InvalidCarCommandError(SimulationError):
 
 class CarCollisionError(SimulationError):
     """Raised when two cars collide."""
-    def __init__(self, car1, car2, position, message="Collision detected."):
+    def __init__(self, car1, car2, position):
         self.car1 = car1
         self.car2 = car2
         self.position = position
-        super().__init__(f"{message} {car1} and {car2} collided at {position}.")
+        super().__init__(f"Collision detected between {car1} and {car2} at {position}")
